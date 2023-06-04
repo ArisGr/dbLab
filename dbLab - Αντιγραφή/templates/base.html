@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+    </head>
+    <body>
+        <h1>Welcome to Our Library Web APP !</h1>
+        <a href="{{url_for('register')}}">Register Page</a><br>
+        <h2>If already registered, Log in !</h2>
+
+        <form method="POST" action="">
+            {{form.username}}
+            {{form.password}}
+            {{form.submit}}
+            
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+            {%if messages %}
+             {% for msg in messages %}
+                <p>{{msg}}</p>
+             {% endfor %}
+         {% endif %} 
+         {% endwith %}       
+
+
+        {% block mainContent %} {% endblock %}
+    </body>
+
+    
+ </html>
